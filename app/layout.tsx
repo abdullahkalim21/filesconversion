@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Canvas Bridge",
+  title: "Files Converter",
   description: "Convert PNG, JPG, and SVG into WebP or ICO in your browser.",
 };
 

@@ -334,14 +334,14 @@ export default function Home() {
 					<div className='flex flex-wrap items-center justify-center gap-3'>
 						<button
 							type='button'
-							className='rounded-full bg-slate-900 px-5 py-2 text-sm font-semibold text-white transition hover:bg-slate-700'
+							className='rounded-full bg-slate-900 px-5 py-2 text-sm font-semibold text-white transition hover:bg-slate-700 cursor-pointer'
 							onClick={() => inputRef.current?.click()}
 						>
 							Select files
 						</button>
 						<button
 							type='button'
-							className='rounded-full border border-slate-300 px-5 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-400'
+							className='rounded-full border border-slate-300 px-5 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-400 cursor-pointer'
 							onClick={clearAll}
 							disabled={!files.length}
 						>
@@ -356,72 +356,6 @@ export default function Home() {
 							onChange={onInputChange}
 						/>
 					</div>
-				</div>
-			</section>
-
-			<section className='mt-10 grid gap-6 lg:grid-cols-[1fr_auto]'>
-				<div className='rounded-2xl border border-slate-200 bg-white/80 p-6'>
-					<h2 className='text-lg font-semibold'>Output settings</h2>
-					<div className='mt-5 space-y-5'>
-						<div>
-							<label className='text-sm font-medium text-slate-600'>
-								WebP quality: {Math.round(quality * 100)}
-							</label>
-							<input
-								type='range'
-								min={0.5}
-								max={1}
-								step={0.01}
-								value={quality}
-								onChange={(event) => setQuality(Number(event.target.value))}
-								className='mt-2 w-full'
-							/>
-						</div>
-						<div>
-							<label className='text-sm font-medium text-slate-600'>
-								ICO size
-							</label>
-							<p className='mt-1 text-xs text-slate-500'>
-								256x256 is the default for modern web apps. Choose another size
-								if you need it.
-							</p>
-							<div className='mt-3 flex flex-wrap gap-2'>
-								{[32, 64, 128, 256].map((size) => (
-									<button
-										key={size}
-										type='button'
-										className={`rounded-full px-4 py-1.5 text-sm font-semibold transition ${
-											iconSize === size
-												? "bg-slate-900 text-white"
-												: "border border-slate-300 text-slate-700 hover:border-slate-400"
-										}`}
-										onClick={() => setIconSize(size)}
-									>
-										{size}x{size}
-									</button>
-								))}
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div className='flex flex-col gap-3'>
-					<button
-						type='button'
-						onClick={() => convertAll("webp")}
-						disabled={!files.length || busy}
-						className='rounded-2xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-700 disabled:cursor-not-allowed disabled:bg-slate-400'
-					>
-						Convert to WebP
-					</button>
-					<button
-						type='button'
-						onClick={() => convertAll("ico")}
-						disabled={!files.length || busy}
-						className='rounded-2xl border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-800 transition hover:border-slate-400 disabled:cursor-not-allowed disabled:opacity-60'
-					>
-						Convert to ICO
-					</button>
 				</div>
 			</section>
 
@@ -459,6 +393,72 @@ export default function Home() {
 					</ul>
 				</section>
 			)}
+
+			<section className='mt-10 grid gap-6 lg:grid-cols-[1fr_auto]'>
+				<div className='rounded-2xl border border-slate-200 bg-white/80 p-6'>
+					<h2 className='text-lg font-semibold'>Output settings</h2>
+					<div className='mt-5 space-y-5'>
+						<div>
+							<label className='text-sm font-medium text-slate-600'>
+								WebP quality: {Math.round(quality * 100)}
+							</label>
+							<input
+								type='range'
+								min={0.5}
+								max={1}
+								step={0.01}
+								value={quality}
+								onChange={(event) => setQuality(Number(event.target.value))}
+								className='mt-2 w-full cursor-pointer'
+							/>
+						</div>
+						<div>
+							<label className='text-sm font-medium text-slate-600'>
+								ICO size
+							</label>
+							<p className='mt-1 text-xs text-slate-500'>
+								256x256 is the default for modern web apps. Choose another size
+								if you need it.
+							</p>
+							<div className='mt-3 flex flex-wrap gap-2'>
+								{[32, 64, 128, 256].map((size) => (
+									<button
+										key={size}
+										type='button'
+										className={`rounded-full px-4 py-1.5 text-sm font-semibold transition cursor-pointer ${
+											iconSize === size
+												? "bg-slate-900 text-white"
+												: "border border-slate-300 text-slate-700 hover:border-slate-400"
+										}`}
+										onClick={() => setIconSize(size)}
+									>
+										{size}x{size}
+									</button>
+								))}
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div className='flex flex-col gap-3'>
+					<button
+						type='button'
+						onClick={() => convertAll("webp")}
+						disabled={!files.length || busy}
+						className='rounded-2xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-700 disabled:cursor-not-allowed disabled:bg-slate-400 cursor-pointer'
+					>
+						Convert to WebP
+					</button>
+					<button
+						type='button'
+						onClick={() => convertAll("ico")}
+						disabled={!files.length || busy}
+						className='rounded-2xl border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-800 transition hover:border-slate-400 disabled:cursor-not-allowed disabled:opacity-60 cursor-pointer'
+					>
+						Convert to ICO
+					</button>
+				</div>
+			</section>
 
 			<footer className='mt-10 text-xs text-slate-400'>
 				Everything stays on your device. No uploads, no tracking.
