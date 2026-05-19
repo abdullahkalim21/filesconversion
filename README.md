@@ -1,8 +1,9 @@
-# filesconversion
+# Tools for Developers
+
+## filesconversion
 
 Minimal, in-browser image conversion for developers. Convert `PNG`/`JPG`/`JPEG`/`SVG` into `WebP` or `ICO`, then download the result instantly.
 
-## Features
 
 - Drag-and-drop multiple files
 - `WebP` conversion with quality control
@@ -10,23 +11,12 @@ Minimal, in-browser image conversion for developers. Convert `PNG`/`JPG`/`JPEG`/
 - Batch downloads bundled into a ZIP
 - Everything runs locally in the browser
 
-## Screenshots
-
-![FilesConversion Visual Design](./public/filescoversion_ss.webp)
+## 🍅 Pomodoro Mode
+Need to focus? The app now includes a built-in Pomodoro timer to help you work efficiently! 
+- **Customizable sessions**: Work for 25 minutes, break for 5 (or set your own times).
+- **Built-in Music Player**: Paste any YouTube link to create a focus playlist that automatically plays during work and pauses during breaks.
+- **Auto-save**: Your playlist and timer progress are saved locally, so you can resume exactly where you left off.
 
 ## Getting Started
 
 🔗 Check it out live: [filesconversion](https://filesconversion.vercel.app/)
-
-OR
-
-```bash
-pnpm install
-pnpm dev
-```
-
-Open `http://localhost:3000` in your browser.
-
-## Architecture
-
-See [ARCHITECTURE](./ARCHITECTURE.md) for the technical overview.
